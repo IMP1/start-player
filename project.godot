@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Control",
+"class": "PlayerIndicator",
+"language": "GDScript",
+"path": "res://Player.gd"
+}, {
 "base": "Resource",
 "class": "UserSettings",
 "language": "GDScript",
 "path": "res://Settings.gd"
 } ]
 _global_script_class_icons={
+"PlayerIndicator": "",
 "UserSettings": ""
 }
 
@@ -23,6 +29,7 @@ _global_script_class_icons={
 config/name="Start Player"
 config/description="Simple selector for a starting player. Each player puts a finger on the screen and waits for one to be selected."
 run/main_scene="res://Touch.tscn"
+boot_splash/show_image=false
 config/icon="res://icon.png"
 
 [display]
