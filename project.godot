@@ -30,7 +30,6 @@ config/name="Start Player"
 config/description="Simple selector for a starting player. Each player puts a finger on the screen and waits for one to be selected."
 run/main_scene="res://Touch.tscn"
 boot_splash/show_image=false
-config/icon="res://icon.png"
 
 [display]
 

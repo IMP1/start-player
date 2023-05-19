@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Touch.gd" type="Script" id=1]
 [ext_resource path="res://Settings.gd" type="Script" id=2]
+[ext_resource path="res://plain-circle.png" type="Texture" id=3]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
 press_duration = 1.0
 background_colour = Color( 0, 0, 0, 1 )
 player_colours = [ Color( 1, 0, 0, 1 ), Color( 0, 0, 1, 1 ), Color( 0.678431, 1, 0.184314, 1 ), Color( 0, 0.501961, 0.501961, 1 ), Color( 1, 0.584314, 0, 1 ), Color( 1, 0.403922, 0.905882, 1 ), Color( 0, 0.764706, 1, 1 ), Color( 1, 0.898039, 0.243137, 1 ) ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.804469, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [node name="Touch" type="Control"]
 anchor_right = 1.0
@@ -21,5 +26,39 @@ anchor_bottom = 1.0
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="ColourParticles" type="CPUParticles2D" parent="."]
+position = Vector2( 331, 450 )
+z_index = 5
+emitting = false
+amount = 40
+lifetime = 2.0
+one_shot = true
+preprocess = 1.5
+explosiveness = 0.8
+texture = ExtResource( 3 )
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+scale_amount = 0.01
+scale_amount_random = 0.1
+color_ramp = SubResource( 2 )
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+position = Vector2( 331, 450 )
+z_index = 5
+emitting = false
+amount = 80
+lifetime = 2.0
+one_shot = true
+preprocess = 1.5
+explosiveness = 0.8
+texture = ExtResource( 3 )
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 128.0
+scale_amount = 0.05
 
 [connection signal="timeout" from="Timer" to="." method="_choose_first_player"]

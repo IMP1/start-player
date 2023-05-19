@@ -1,3 +1,4 @@
+class_name PlayerIndicator
 extends Control
 
 export(Color) var colour: Color = Color.red setget _set_colour
